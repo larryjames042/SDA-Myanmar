@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/songContentFragment">
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.church.sdahymnal.ui.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.church.sdahymnal.ui.favourite.BookmarkFragment"
+        android:label="fragment_bookmark"
+        tools:layout="@layout/fragment_bookmark" />
+
+    <fragment
+        android:id="@+id/songContentFragment"
+        android:name="com.church.sdahymnal.ui.tableofcontent.SongContentFragment"
+        android:label="SongContentFragment"
+        tools:layout="@layout/fragment_content"/>
+    <fragment
+        android:id="@+id/bibleTableContentFragment"
+        android:name="com.church.sdahymnal.ui.bible.BibleTableContentFragment"
+        android:label="fragment_bible_table_content"
+        tools:layout="@layout/fragment_bible_table_content" />
+</navigation>

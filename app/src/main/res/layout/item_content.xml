@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_container">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_song_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1."
+        android:layout_marginLeft="12dp"
+        android:textColor="@color/PrimaryTextColor"
+        android:textSize="16sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"/>
+
+    <me.myatminsoe.mdetect.MMTextView
+        android:id="@+id/txt_song_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textColor="@color/PrimaryTextColor"
+        android:layout_toRightOf="@id/txt_song_number"
+        android:text="Amazing Grace" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@id/txt_song_name"
+        android:background="@color/teal_200"/>
+
+</RelativeLayout>

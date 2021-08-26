@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Text color-->
+    <color name="PrimaryTextColor">#ffffff</color>
+    <color name="SecondaryTextColor">#ECECEC</color>
+    <color name="lyricTextColor">#ffffff</color>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primaryColor"
+    app:contentInsetStart="0dp"
+    app:contentInsetLeft="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_logo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/ic_sda_logo"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/img_logo"
+            android:text="Seventh-day Adventist Hymnal" />
+    </RelativeLayout>
+
+app:title="SDA Hymnal"> </androidx.appcompat.widget.Toolbar>

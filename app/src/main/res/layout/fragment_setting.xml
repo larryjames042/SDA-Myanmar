@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:divider="@color/teal_50"
+            app:showDividers="middle|end">
+
+            <androidx.appcompat.widget.Toolbar
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_gradient"
+                android:theme="@style/ThemeOverlay.AppCompat"
+                app:title="Setting"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_dark_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="7dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_dark_theme" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_dark_theme"
+                    android:text="Dark Theme"
+                    android:textStyle="bold"
+                    android:textColor="@color/PrimaryTextColor"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/sw_dark_theme"
+                    android:layout_toRightOf="@id/img_dark_theme" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sw_dark_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container_about_us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_about_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="7dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_about_us" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_about_us"
+                    android:text="About Us (MYUM)"
+                    android:textStyle="bold"
+                    android:textColor="@color/PrimaryTextColor"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/img_about_us" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container_share_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_share_app"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="7dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_share_app" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_share_app"
+                    android:text="Share this app"
+                    android:textStyle="bold"
+                    android:textColor="@color/PrimaryTextColor"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/img_share_app" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container_app_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_app_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="7dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_app_info" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_app_info"
+                    android:text="App Info"
+                    android:textStyle="bold"
+                    android:textColor="@color/PrimaryTextColor"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/img_app_info" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container_contact_developer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="7dp"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_email" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_contact"
+                    android:text="Contact Developer"
+                    android:textStyle="bold"
+                    android:textColor="@color/PrimaryTextColor"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/img_contact" />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_background_leave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            app:srcCompat="@drawable/background_leaves" />
+
+    </FrameLayout>
+
+
+
+</layout>
