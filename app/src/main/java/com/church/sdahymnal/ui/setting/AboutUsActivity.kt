@@ -68,7 +68,7 @@ class AboutUsActivity : AppCompatActivity() {
                 data = Uri.parse("https://www.youtube.com/channel/UCVhaudyEEH9NLp9AT7xzXvQ")
             }
             startActivity(i)
-        }catch(e : Error){
+        }catch(e : Exception){
             Toast.makeText(this, "Couldn't find any app to handle the request!", Toast.LENGTH_SHORT).show()
         }
 
@@ -79,7 +79,7 @@ class AboutUsActivity : AppCompatActivity() {
             packageManager.getPackageInfo("com.facebook.katana", 0)
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/220334284975499"))
             startActivity(i)
-        }catch(e : Error){
+        }catch(e : Exception){
             val i = Intent(Intent.ACTION_VIEW, Uri.parse("https//www.facebook.com/MyanmarUnionMission"))
             startActivity(i)
         }
@@ -93,7 +93,7 @@ class AboutUsActivity : AppCompatActivity() {
             if(intent.resolveActivity(this.packageManager)!=null){
                 startActivity(intent)
             }
-        }catch(e : Error){
+        }catch(e : java.lang.Exception){
             Toast.makeText(this, "Couldn't find any app to handle the request!", Toast.LENGTH_SHORT).show()
         }
 

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.church.sdahymnal.R
+import com.church.sdahymnal.utils.Utils
 
 
 class LyricsAdapter(val list : List<Pair<String, String>>,private var fontSize : Float = 16f) : RecyclerView.Adapter<LyricsAdapter.ViewHolder> (){
@@ -18,13 +19,13 @@ class LyricsAdapter(val list : List<Pair<String, String>>,private var fontSize :
     override fun onBindViewHolder(holder: LyricsAdapter.ViewHolder, position: Int) {
         val (a,b) = list[position]
         if(a.equals("Refrain") || a.equals("ထပ်ဆို")){
-            holder.number.setTextColor(holder.itemView.resources.getColor(R.color.dark_orange))
+            holder.number.setTextColor(holder.itemView.resources.getColor(R.color.dark_yellow))
         }else{
-            holder.number.setTextColor(holder.itemView.resources.getColor(R.color.lyrics_color))
+            holder.number.setTextColor(holder.itemView.resources.getColor(R.color.lyricTextColor))
         }
-        holder.number.text = a
+        holder.number.text = Utils.convertToMyanmarNumber(a)
         holder.lyrics.text = b
-        holder.number.textSize = fontSize
+        holder.number.textSize = fontSize-4
         holder.lyrics.textSize = fontSize
     }
 

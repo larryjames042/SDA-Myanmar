@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.church.sdahymnal.R
+import com.church.sdahymnal.utils.Utils
 
 class ChapterAdapter() : ListAdapter<Int, ChapterAdapter.ViewHolder>(DIFF_CALLBACK) {
 
@@ -36,7 +37,7 @@ class ChapterAdapter() : ListAdapter<Int, ChapterAdapter.ViewHolder>(DIFF_CALLBA
 
     override fun onBindViewHolder(holder: ChapterAdapter.ViewHolder, position: Int) {
         val chapter = getItem(position)
-        holder.chapterNumber.text = chapter.toString()
+        holder.chapterNumber.text = Utils.convertToMyanmarNumber(chapter.toString())
         holder.chapterNumber.setOnClickListener {
             onItemClickListener?.let{
                 it(chapter)
@@ -50,3 +51,4 @@ class ChapterAdapter() : ListAdapter<Int, ChapterAdapter.ViewHolder>(DIFF_CALLBA
     }
 
 }
+

@@ -15,9 +15,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.church.sdahymnal.BuildConfig
 import com.church.sdahymnal.R
 import com.church.sdahymnal.databinding.FragmentSettingBinding
 import com.church.sdahymnal.utils.Utils
+import org.apache.commons.lang3.ClassUtils.getPackageName
 
 
 class SettingFragment : Fragment() {
@@ -44,6 +46,7 @@ class SettingFragment : Fragment() {
         binding.swDarkTheme.isChecked = isNightTheme == Configuration.UI_MODE_NIGHT_YES
 
         onClickListener()
+        binding.txtVersion.text = "App Version - ${BuildConfig.VERSION_NAME} "
 
     }
 
@@ -69,10 +72,6 @@ class SettingFragment : Fragment() {
             startActivity(Intent(activity, AboutUsActivity::class.java))
         }
 
-        binding.containerAppInfo.setOnClickListener {
-
-        }
-
 
         binding.containerShareApp.setOnClickListener {
             activity?.let { it1 -> shareApp(it1) }
@@ -81,21 +80,59 @@ class SettingFragment : Fragment() {
         binding.containerContactDeveloper.setOnClickListener {
             sendEmail()
         }
+
+        binding.containerRateApp.setOnClickListener{
+            rateApp()
+        }
     }
 
-    protected fun sendEmail() {
-        val TO = arrayOf("larryjames042@gmail.com")
-        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-            data = Uri.parse("mailto:")
-            putExtra(Intent.EXTRA_EMAIL, TO)
-            putExtra(Intent.EXTRA_SUBJECT, "SDA HYMNAL")
+//    protected fun sendEmail() {
+//
+//        val TO = arrayOf("chanokhyosef@gmail.com")
+//        val emailIntent = Intent(Intent.ACTION_SEND).apply {
+//            putExtra(Intent.EXTRA_EMAIL, TO)
+//            putExtra(Intent.EXTRA_SUBJECT, "SDA HYMNAL")
+//        }
+//        val packageManager = activity?.packageManager
+//        if(packageManager?.let { emailIntent.resolveActivity(it) } != null){
+//            startActivity(emailIntent)
+//        }else{
+//            Toast.makeText(activity, "Nothing to handle this action!", Toast.LENGTH_SHORT).show()
+//        }
+//    }
+
+    fun rateApp(){
+        val appPackageName = requireActivity().getPackageName()
+        try {
+            startActivity( Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${appPackageName}")));
+        } catch (e : ActivityNotFoundException) {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=${appPackageName}")))
         }
-        val packageManager = activity?.packageManager
-        if(packageManager?.let { emailIntent.resolveActivity(it) } != null){
-            startActivity(emailIntent)
-        }else{
-            Toast.makeText(activity, "Nothing to handle this action!", Toast.LENGTH_SHORT).show()
-        }
+    }
+
+    fun sendEmail(){
+        val emailsend = arrayOf("chanokhyosef@gmail.com")
+        val  emailsubject = "SDA Hymnal"
+
+
+        // define Intent object
+        // with action attribute as ACTION_SEND
+        val intent  =  Intent(Intent.ACTION_SEND);
+
+        // add three fiels to intent using putExtra function
+        intent.putExtra(Intent.EXTRA_EMAIL,
+            emailsend)
+        intent.putExtra(Intent.EXTRA_SUBJECT, emailsubject)
+
+        // set type of intent
+        intent.setType("message/rfc822");
+
+        // startActivity with intent with chooser
+        // as Email client using createChooser function
+        startActivity(
+            Intent
+                .createChooser(intent,
+                    "Choose an Email client :"));
     }
 
     fun shareApp(context: Context) {

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,8 @@ import com.church.sdahymnal.R
 import com.church.sdahymnal.data.BibleBook
 import com.church.sdahymnal.utils.RecyclerViewItemClickListener
 
-class BibleBookAdapter(val listener : RecyclerViewItemClickListener) : ListAdapter<BibleBook, BibleBookAdapter.ViewHolder>(DIFF_CALLBACK) {
+class BibleBookAdapter(val listener : RecyclerViewItemClickListener) :
+    ListAdapter<BibleBook, BibleBookAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<BibleBook>(){
@@ -28,14 +30,18 @@ class BibleBookAdapter(val listener : RecyclerViewItemClickListener) : ListAdapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view  = LayoutInflater.from(parent.context).inflate(R.layout.item_bible_book, parent, false )
-
-
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val bible = getItem(position)
-        holder.bibleBookName.text = bible.bookNameMm
+        holder.bibleBookName.text = bible.shortNameMM
+        if(position<39){
+            holder.container.setBackgroundColor(holder.itemView.context.resources.getColor(R.color.ot_bg_color))
+        }else{
+            holder.container.setBackgroundColor(holder.itemView.context.resources.getColor(R.color.nt_bg_color))
+        }
+
         holder.container.setOnClickListener { listener.onItemClick(bible) }
     }
 

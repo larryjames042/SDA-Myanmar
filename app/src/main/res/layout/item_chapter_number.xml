@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/txt_chapter_number"
-    tools:text="138"
-    android:padding="8dp"
-    android:textColor="@color/PrimaryTextColor"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="2dp"
+    app:cardBackgroundColor="@color/ot_bg_color"
+    android:elevation="2dp">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_chapter_number"
+        tools:text="138"
+        android:padding="12dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/PrimaryTextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</com.google.android.material.card.MaterialCardView>
+

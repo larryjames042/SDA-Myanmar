@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<!--    theme color-->
+    <color name="primaryColor">@color/teal_800</color>
+    <color name="primaryColorDark">@color/teal_900</color>
+
+    <color name="sda_logo_color">@color/green</color>
+
     <!--    Text color-->
     <color name="PrimaryTextColor">#FF000000</color>
     <color name="SecondaryTextColor">#333333</color>
@@ -19,8 +25,7 @@
     <color name="colorTableContent">#FDFAF5E8</color>
     <color name="lightGray">#DFDFDF</color>
     <color name="colorBook">#FDF6ECCE</color>
-    <color name="primaryColor">@color/teal_800</color>
-    <color name="primaryColorDark">@color/teal_900</color>
+
     <color name="colorAccent">@color/teal_50</color>
     <color name="headerColor">#654E0B</color>
 
@@ -57,4 +62,6 @@
     <color name="blue">#2196F3</color>
     <color name="skyblue">#B6DCFA</color>
 
+    <color name="nt_bg_color">#F7EDE2</color>
+    <color name="ot_bg_color">#d8e2dc</color>
 </resources>

@@ -3,8 +3,6 @@ package com.church.sdahymnal.ui.bible
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.church.sdahymnal.data.BibleBook
 import com.church.sdahymnal.data.BibleData
 import com.church.sdahymnal.repository.HymnalRepository
@@ -22,14 +20,14 @@ class BibleTableContentViewModel @Inject constructor(val app: Application, val r
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    val booksList = MutableLiveData<List<BibleBook>>()
+    val bibleBooksList = MutableLiveData<List<BibleBook>>()
 
     val chapterList = MutableLiveData<List<BibleData>>()
 
     val totalChapter = MutableLiveData<Int>()
 
     init {
-        getBooks()
+        getBibleBooks()
     }
 
     override fun onCleared() {
@@ -37,15 +35,9 @@ class BibleTableContentViewModel @Inject constructor(val app: Application, val r
         viewModelJob.cancel()
     }
 
-    fun getBooks(){
+    fun getBibleBooks(){
         uiScope.launch {
-            booksList.value = repo.getBibleBooks()
-        }
-    }
-
-    fun getChapterList(bookId : Int){
-        uiScope.launch {
-            chapterList.value = repo.getBibleDataByBookId(bookId.toLong())
+            bibleBooksList.value = repo.getBibleBooks()
         }
     }
 

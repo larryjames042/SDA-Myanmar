@@ -14,9 +14,11 @@ import com.church.sdahymnal.R
 import com.church.sdahymnal.database.*
 import com.church.sdahymnal.databinding.ActivitySongLyricsBinding
 import com.church.sdahymnal.repository.HymnalRepository
+import com.church.sdahymnal.utils.Utils
 import com.church.sdahymnal.utils.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import kotlin.properties.Delegates
 import kotlin.text.StringBuilder
 
 @AndroidEntryPoint
@@ -38,6 +40,8 @@ class SongLyricsActivity : AppCompatActivity() {
 
     private var song : Song? = null
 
+    private var fontSize  by Delegates.notNull<Float>()
+
     private val list by lazy {
         mutableListOf<Pair<String, String>>()
     }
@@ -56,6 +60,7 @@ class SongLyricsActivity : AppCompatActivity() {
         song?.run {
             viewModel.setSongId(song!!.id.toInt())
         }
+
         viewModel.versesList.observe(this, Observer {
             verseList = it
             viewModel.getChorus()
@@ -90,7 +95,7 @@ class SongLyricsActivity : AppCompatActivity() {
         })
 
         viewModel.chorusList.observe(this, Observer {
-            binding.txtSongNumber.text = "${song!!.songNumber.toString()}."
+            binding.txtSongNumber.text = "${Utils.convertToMyanmarNumber(song!!.songNumber.toString())}."
             binding.txtSongTitle.text = song!!.songTitle.toString()
             binding.txtSongTitleEng.text = song!!.songTitleEng.toString()
 
@@ -99,7 +104,7 @@ class SongLyricsActivity : AppCompatActivity() {
             Timber.tag("chorus_size").d(it?.size.toString())
 
             var i = 0
-
+            list.clear()
             while (i < verseList!!.size) {
                 list.add(Pair((i + 1).toString(), verseList!![i].verseContent))
                 if(chorusList?.size!=0 && i==0){  // chorus is only added once right after verse number 1
@@ -115,8 +120,8 @@ class SongLyricsActivity : AppCompatActivity() {
                 i++
 
             }
-
-            adapter = LyricsAdapter(list)
+            fontSize = (Utils.getFromPreference(this, Utils.KEY_SONG_FONT_SIZE, "18f")).toFloat()
+            adapter = LyricsAdapter(list, fontSize)
             binding.rvLyrics.adapter = adapter
 
         })
@@ -132,10 +137,14 @@ class SongLyricsActivity : AppCompatActivity() {
 
         binding.imgZoomin.setOnClickListener {
             adapter?.increaseFontSize()
+            fontSize+=2f
+            Utils.saveToPreference(this, Utils.KEY_SONG_FONT_SIZE, fontSize.toString())
         }
 
         binding.imgZoomout.setOnClickListener {
             adapter?.decreaseFontSize()
+            fontSize-=2f
+            Utils.saveToPreference(this, Utils.KEY_SONG_FONT_SIZE, fontSize.toString())
         }
 
         binding.imgCopy.setOnClickListener {

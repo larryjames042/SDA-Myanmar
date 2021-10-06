@@ -3,19 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container_bible_book"
     android:layout_marginLeft="4dp"
     android:layout_marginTop="4dp"
-    android:id="@+id/container_bible_book"
-    android:background="@drawable/fav_card_background"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <me.myatminsoe.mdetect.MMTextView
         android:id="@+id/txt_bible_book"
         tools:text="Genesis"
-        android:padding="8dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:ellipsize="end"
+        android:textSize="16sp"
         android:textColor="@color/PrimaryTextColor"
         android:maxLines="1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
 </FrameLayout>

@@ -18,13 +18,9 @@ import com.church.sdahymnal.database.Song
 import com.church.sdahymnal.databinding.FragmentContentBinding
 import com.church.sdahymnal.ui.lyrics.SongLyricsActivity
 import com.church.sdahymnal.ui.search.SearchActivity
-import com.church.sdahymnal.ui.songbook.BookAdapter
 import com.church.sdahymnal.utils.RecyclerViewItemClickListener
 import com.church.sdahymnal.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 
 private const val ARG_BOOKID = "bookId"
 
@@ -34,11 +30,6 @@ class SongContentFragment : Fragment() {
     lateinit var binding : FragmentContentBinding
 
     private var bookId: String? = null
-
-
-    private var viewModelJob = Job()
-
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private val viewModel : SharedViewModel by activityViewModels()
 

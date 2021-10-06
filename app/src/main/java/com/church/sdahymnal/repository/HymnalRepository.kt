@@ -1,6 +1,7 @@
 package com.church.sdahymnal.repository
 
 import com.church.sdahymnal.data.BibleBook
+import com.church.sdahymnal.data.BibleBookAndChapter
 import com.church.sdahymnal.data.BibleData
 import com.church.sdahymnal.database.*
 import kotlinx.coroutines.Dispatchers
@@ -142,6 +143,12 @@ class HymnalRepository @Inject constructor(
     suspend fun getTotalChapter(bibleBookId: Long) : Int{
         return withContext(Dispatchers.IO){
             bibleDataDao.getTotalChapterByBook(bibleBookId)
+        }
+    }
+
+    suspend fun getTotalChapterWithBookInfo(bibleBookId: Long) : BibleBookAndChapter{
+        return withContext(Dispatchers.IO){
+            bibleDataDao.getTotalChapterByBookInfo(bibleBookId)
         }
     }
 

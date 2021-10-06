@@ -2,6 +2,10 @@ package com.church.sdahymnal.utils
 
 import android.content.Context
 import android.view.View
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.viewpager2.widget.ViewPager2
 import com.church.sdahymnal.data.BibleBook
 import com.church.sdahymnal.data.BibleData
 //import com.church.sdahymnal.data.BibleBook
@@ -20,6 +24,10 @@ object Utils {
     const val KEY_FIRST_TIMER_USER = "key_first_time_user"
     const val KEY_SELECTED_BOOK = "key_selected_book"
     const val KEY_DARK_THEME = "key-dark-theme"
+    const val KEY_BIBLE_FONT_SIZE = "key_bible_font_size"
+    const val KEY_SONG_FONT_SIZE = "key_song_font_size"
+
+    // CSV reader
 
     fun readBookCsv(context : Context) : MutableList<Book>{
         val csvParser = CSVParserBuilder().withSeparator('|').withEscapeChar('\n').build()
@@ -76,7 +84,7 @@ object Utils {
         val result = csvReaderBuilder.readAll()
         result.forEachIndexed { index, strings ->
             if(index>0){
-                list.add(BibleBook(strings[0].trim().toLong(), strings[1].toString(), strings[2].toString()))
+                list.add(BibleBook(strings[0].trim().toLong(), strings[1].toString(), strings[2].toString(),strings[3].toString()))
             }
         }
         return list
@@ -112,6 +120,9 @@ object Utils {
         return list
     }
 
+
+    // Shared preference
+
     fun saveToPreference(context: Context, key : String, value : String){
         val pref = context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE )
         with(pref.edit()){
@@ -139,11 +150,56 @@ object Utils {
         }
     }
 
+    private fun convertNumber(number : String) : String{
+        return when(number){
+            "1" -> "၁"
+            "2" -> "၂"
+            "3" -> "၃"
+            "4" -> "၄"
+            "5" -> "၅"
+            "6" -> "၆"
+            "7" -> "၇"
+            "8" -> "၈"
+            "9" -> "၉"
+            "0" -> "၀"
+            else -> ""
+        }
+    }
+
+    fun convertToMyanmarNumber(text : String) : String{
+        var str = ""
+        text.forEach {
+            if(Utils.isNumber(it.toString())){
+                str+=Utils.convertNumber(it.toString())
+            }else{
+                str+=it
+            }
+        }
+        return str
+    }
+
+    fun isNumber(s: String): Boolean {
+        return try {
+            s.toInt()
+            true
+        } catch (ex: NumberFormatException) {
+            false
+        }
+    }
+
 }
+
+// kotlin Extension
 
 fun View.showSnackbar(view: View, message : String){
     Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
 }
+
+fun ViewPager2.findCurrentFragment(fragmentManager: FragmentManager): Fragment? {
+    return fragmentManager.findFragmentByTag("f$currentItem")
+}
+
+
 
 
 interface RecyclerViewItemClickListener{

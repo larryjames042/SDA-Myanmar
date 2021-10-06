@@ -3,6 +3,8 @@ package com.church.sdahymnal.ui.tableofcontent
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.church.sdahymnal.data.BibleBook
+import com.church.sdahymnal.data.BibleData
 import com.church.sdahymnal.database.Book
 import com.church.sdahymnal.database.Song
 import com.church.sdahymnal.repository.HymnalRepository
@@ -22,6 +24,7 @@ class SharedViewModel @Inject constructor(val app: Application, val repo: Hymnal
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
+    // Songs
     val booksList = MutableLiveData<List<Book>>()
 
     val songList = MutableLiveData<List<Song>>()
@@ -29,6 +32,8 @@ class SharedViewModel @Inject constructor(val app: Application, val repo: Hymnal
     val bookIdReady = MutableLiveData<Int>()
 
     val isLoadingDatabase = MutableLiveData<Boolean>()
+
+
 
     init {
         getBooks()
@@ -40,8 +45,6 @@ class SharedViewModel @Inject constructor(val app: Application, val repo: Hymnal
     }
 
      fun getBooks(){
-
-
 
         uiScope.launch {
             if(Utils.isFirstTimeUser(app)){

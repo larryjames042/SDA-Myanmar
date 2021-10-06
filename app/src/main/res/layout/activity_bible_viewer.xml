@@ -1,9 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.bible.BibleViewerActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"
+        >
+
+<!--        <androidx.core.widget.NestedScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:fillViewport="true"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<!--            -->
+
+
+<!--        </androidx.core.widget.NestedScrollView>-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+    
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorSurface"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll|snap">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toLeftOf="@id/img_text_size">
+                        <me.myatminsoe.mdetect.MMTextView
+                            android:id="@+id/txt_bible_book"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/PrimaryTextColor"
+                            android:textStyle="bold"
+                            android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                            tools:text="Genesis" />
+                    </FrameLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_text_size"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_alignParentRight="true"
+
+                        app:srcCompat="@drawable/ic_baseline_format_size_24"/>
+
+                </RelativeLayout>
+
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetEnd="0dp"
+                app:layout_collapseMode="pin">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tap_layout"
+                    app:tabMode="scrollable"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

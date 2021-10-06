@@ -12,8 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/buenard</item>
-        <item name="fontFamily">@font/buenard</item>
+        <item name="android:fontFamily">@font/croissant_one</item>
+        <item name="fontFamily">@font/croissant_one</item>
 
     </style>
+
+
+
 </resources>

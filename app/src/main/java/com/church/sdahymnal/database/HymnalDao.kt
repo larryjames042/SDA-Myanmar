@@ -2,6 +2,7 @@ package com.church.sdahymnal.database
 
 import androidx.room.*
 import com.church.sdahymnal.data.BibleBook
+import com.church.sdahymnal.data.BibleBookAndChapter
 import com.church.sdahymnal.data.BibleBookNameWithWord
 import com.church.sdahymnal.data.BibleData
 
@@ -126,4 +127,8 @@ interface BibleDataDao{
 
     @Query("SELECT COUNT(DISTINCT chapterNumber )  FROM BibleData WHERE BibleData.bookId = :bookId  ")
     fun getTotalChapterByBook(bookId : Long) : Int
+
+    @Query("SELECT BibleBook.id, BibleBook.bookNameMm, BibleBook.bookNameEng, COUNT(DISTINCT chapterNumber ) as totalChapter  FROM BibleBook INNER JOIN BibleData on BibleBook.id = BibleData.bookId WHERE BibleData.bookId = :bookId")
+    fun getTotalChapterByBookInfo(bookId : Long) : BibleBookAndChapter
+
 }

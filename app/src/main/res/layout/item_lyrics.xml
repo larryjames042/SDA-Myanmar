@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="12dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <me.myatminsoe.mdetect.MMTextView
         android:id="@+id/txt_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:textSize="16sp"
         android:textColor="@color/lyricTextColor"
-        tools:text="1"/>
+        android:textSize="12dp"
+        tools:text="1" />
 
     <me.myatminsoe.mdetect.MMTextView
         android:id="@+id/txt_lyrics"
