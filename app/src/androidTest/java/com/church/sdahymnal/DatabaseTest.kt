@@ -85,9 +85,9 @@ class ReadWriteTest{
 
     @Test
     @Throws(Exception::class)
-    fun BibleBookTest(){
+    fun bibleBookTest(){
         // Test   BibleBook insert
-        val biblebook = BibleBook(1, "Genesis", "Genesis")
+        val biblebook = BibleBook(1, "Genesis", "Genesis","gen")
         bibleDao.insertBibleBook(listOf(biblebook))
         // Test Biblebook query all
         var bibleBooks = bibleDao.getAllBible()

@@ -42,6 +42,10 @@ android {
     }
 }
 
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}
 
 dependencies {
 
@@ -87,6 +91,7 @@ dependencies {
     // hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
     // hilt lifecycle
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle"
     kapt "androidx.hilt:hilt-compiler:$hilt_lifecycle"
@@ -98,8 +103,8 @@ dependencies {
     implementation platform("com.google.firebase:firebase-bom:28.4.1")
     implementation "com.google.firebase:firebase-analytics-ktx"
 
-     implementation "com.opencsv:opencsv:4.6"
-     implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation "com.opencsv:opencsv:4.6"
+    implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'com.nshmura:recyclertablayout:1.5.0'
 
 }
